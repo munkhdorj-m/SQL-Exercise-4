@@ -1,44 +1,127 @@
-# SQL Exercise 3
+# SQL Exercise 4
 
 sql pdf: https://drive.google.com/file/d/1d6qZTlxu_g44G1RraEx_snEtDkgQVbQz/view?usp=sharing
 
 ---
+## Exercises
+1. Create a table called Students with the following columns:
 
-### 1. Create a table called Employees with the following columns:
-       •	id (integer, primary key)
-       •	name (varchar(50))
-       •	position (varchar(50))
-       •	salary (integer)
-       •	hire_date (date)
+		StudentID (INTEGER, PRIMARY KEY)
+		FirstName (VARCHAR(50))
+		LastName (VARCHAR(50))
+		TutorGroup (VARCHAR(10))
 
-### 2. Insert the following data into the Employees table:
-	•	Employee 1: id = 1, name = 'John Doe', position = 'Manager', salary = 60000, hire_date = '2020-01-15'
-	•	Employee 2: id = 2, name = 'Jane Smith', position = 'Developer', salary = 50000, hire_date = '2019-03-20'
-	•	Employee 3: id = 3, name = 'Sarah Lee', position = 'Designer', salary = 45000, hire_date = '2021-06-10'
-	•	Employee 4: id = 4, name = 'Michael Brown', position = 'HR', salary = 47000, hire_date = '2022-02-25'
- 
-### 3. Update existing employees to have departments:
-	•	John Doe → Management
-	•	Jane Smith → IT
-	•	Sarah Lee → Design
-	•	Michael Brown → HR
- 
-### 4. Create a Departments table with the following columns:
-	•	id (integer, primary key)
-	•	name (varchar(50), not null)
-	•	location (varchar(50), not null)
- 
-### 5. Alter the Employees table by adding a new column called email of type VARCHAR(100).
+2. Create a table called Classes:
 
-### 6. Insert a new employee with the following data:
-	•	id = 4, name = 'Michael Brown', position = 'HR', salary = 47000, hire_date = '2022-02-25', email = 'michael.brown@example.com'
+ClassID (VARCHAR(10), PRIMARY KEY)
 
-### 7. Delete the Design department.
+Subject (VARCHAR(50))
 
-### 8. Delete the employee with id = 4 from the Employees table.
+3. Create a table called Enrollment:
 
-### 9. Drop the Employees and Departments tables.
+StudentID (INTEGER)
 
+ClassID (VARCHAR(10))
+
+4. Alter the Students table:
+
+Add a new column:
+
+Email (VARCHAR(100))
+
+✏️ PART B — DML (Data Manipulation Language)
+5. Insert the following students:
+
+(1, 'Alice', 'Brown', '11A')
+
+(2, 'John', 'Smith', '11B')
+
+(3, 'David', 'Tan', '10A')
+
+(4, 'Anna', 'Khan', '11A')
+
+6. Insert the following classes:
+
+('CS1', 'Computer Science')
+
+('MA1', 'Mathematics')
+
+('EN1', 'English')
+
+7. Insert enrollments:
+
+(1, 'CS1')
+
+(1, 'MA1')
+
+(2, 'CS1')
+
+(3, 'EN1')
+
+(4, 'MA1')
+
+8. Update student emails:
+
+Alice → 'alice@gmail.com
+'
+
+John → 'john@gmail.com
+'
+
+9. Delete the student with StudentID = 3
+🔍 PART C — SELECT (Queries)
+10. Display all students’ first and last names.
+11. Display all students in tutor group '11A'.
+12. Display all students sorted by LastName.
+13. Display students whose first name starts with 'A'.
+
+👉 Must use LIKE
+
+14. Display students whose last name contains 'an'.
+15. Display:
+
+FirstName
+
+Subject
+
+👉 Use JOIN across all tables
+
+16. Display the names of students who take 'Mathematics'.
+17. Display:
+
+FirstName
+
+Subject
+Sort by Subject.
+
+18. Display all students enrolled in 'CS1'.
+19. Challenge 🔥
+
+Display:
+
+FirstName
+
+LastName
+
+Subject
+
+ONLY for students:
+
+in '11A'
+
+AND subject contains 'Math'
+
+👉 Must use:
+
+JOIN
+
+WHERE
+
+LIKE
+
+🧨 PART D — ADVANCED (Exam Push)
+20. Delete all students in tutor group '11B'.
+21. Drop the Enrollment table.
 ---
 
 
