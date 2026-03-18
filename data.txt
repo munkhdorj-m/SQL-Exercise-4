@@ -1,0 +1,69 @@
+DROP TABLE IF EXISTS EmployeeProjects;
+DROP TABLE IF EXISTS Employees;
+DROP TABLE IF EXISTS Projects;
+DROP TABLE IF EXISTS Departments;
+
+CREATE TABLE Departments (
+    department_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    department_name TEXT NOT NULL
+);
+
+CREATE TABLE Employees (
+    employee_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    salary REAL NOT NULL,
+    department_id INTEGER,
+    FOREIGN KEY (department_id) REFERENCES Departments(department_id)
+);
+
+CREATE TABLE Projects (
+    project_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    project_name TEXT NOT NULL
+);
+
+CREATE TABLE EmployeeProjects (
+    employee_id INTEGER,
+    project_id INTEGER,
+    role TEXT NOT NULL,
+    PRIMARY KEY (employee_id, project_id),
+    FOREIGN KEY (employee_id) REFERENCES Employees(employee_id),
+    FOREIGN KEY (project_id) REFERENCES Projects(project_id)
+);
+
+INSERT INTO Departments (department_name) VALUES 
+('HR'),
+('Engineering'),
+('Sales'),
+('Marketing'),
+('Finance');
+
+INSERT INTO Employees (name, salary, department_id) VALUES 
+('Alice Johnson', 60000, 1),
+('Bob Smith', 75000, 2),
+('Charlie Brown', 50000, 3),
+('David Lee', 90000, 2),
+('Eve Watson', 65000, 4),
+('Frank Miller', 55000, 3),
+('Grace Hopper', 100000, 2),
+('Helen Carter', 72000, 5),
+('Isaac Newton', 83000, 5),
+('Jack Daniels', 77000, 4);
+
+INSERT INTO Projects (project_name) VALUES 
+('Website Redesign'),
+('AI Research'),
+('Marketing Campaign'),
+('Financial Audit'),
+('Cloud Migration');
+
+INSERT INTO EmployeeProjects (employee_id, project_id, role) VALUES 
+(1, 1, 'Manager'),
+(2, 2, 'Developer'),
+(3, 3, 'Sales Lead'),
+(4, 2, 'AI Engineer'),
+(5, 3, 'Marketing Manager'),
+(6, 3, 'Sales Rep'),
+(7, 2, 'Research Scientist'),
+(8, 4, 'Finance Analyst'),
+(9, 5, 'Cloud Engineer'),
+(10, 3, 'Marketing Analyst');
