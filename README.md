@@ -64,6 +64,7 @@ sql pdf: https://drive.google.com/file/d/1d6qZTlxu_g44G1RraEx_snEtDkgQVbQz/view?
 17. Display FirstName, Subject, Sort by Subject.
 18. Display all students enrolled in 'CS1'.
 19. Display FirstName,LastName,Subject ONLY for students in '11A' AND subject contains 'Math'
+20. Drop the Enrollment table.
 
     
 ---
